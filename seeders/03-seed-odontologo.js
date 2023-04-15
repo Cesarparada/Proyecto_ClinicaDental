@@ -5,23 +5,23 @@ const { Op } = require("sequelize");
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "Odontologo",
+      "Odontologos",
       [
         {
-          id_usuario:1,
-          matriculaOdontologo: 1234564568,
+          id_usuario:6,
+          matriculaOdontologo: 1234566668,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          id_usuario:2,
-          matriculaOdontologo: 1234564568,
+          id_usuario:7,
+          matriculaOdontologo: 1234774568,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          id_usuario:3,
-          matriculaOdontologo: 1234564568,
+          id_usuario:8,
+          matriculaOdontologo: 1234114568,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

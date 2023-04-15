@@ -2,23 +2,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('cita', {
+    await queryInterface.createTable('odontologos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fecha: {
-        type: Sequelize.DATE
+      id_usuario: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "usuarios",
+          key:"id"
+        }
       },
-      hora: {
-        type: Sequelize.INTEGER
-      },
-      id_paciente: {
-        type: Sequelize.INTEGER
-      },
-      id_odontologo: {
+      matriculaOdontologo: {
+        allowNull:false,
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -32,6 +31,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('cita');
+    await queryInterface.dropTable('odontologos');
   }
 };
