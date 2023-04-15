@@ -30,7 +30,6 @@ module.exports = {
       fecha: {
         type: Sequelize.DATE,
         allowNull: false,
-
       },
       horario: {
         type: Sequelize.TIME,
