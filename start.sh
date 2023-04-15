@@ -8,6 +8,7 @@ sequelize model:generate --name Nacionalidad --attributes 'nombre_nacion:string'
 
 
 
+
 # crear modelo Direccion
 sequelize model:generate --name Direccion --attributes 'calle:string,numero:integer'
 
@@ -34,7 +35,7 @@ sequelize db:migrate:undo:all --to 03-create-alumno.js
 # crear seed
 sequelize seed:generate --name seed-nacionalidad
 sequelize seed:generate --name seed-direccion
-sequelize seed:generate --name seed-alumno
+sequelize seed:generate --name seed-odontologo
 
 # ejecutar seed
 sequelize db:seed:all
