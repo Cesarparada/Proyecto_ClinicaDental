@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const usuarioController = require("../controllers/registerControllers");
 
-// end-points 
+// end-points
 
 /* obtener todos los usuarios */
 router.get("/", usuarioController.getAll);

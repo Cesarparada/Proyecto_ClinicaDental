@@ -21,26 +21,16 @@ usuarioController.getAll = async (req, res) => {
       offset: (page - 1) * LIMIT,
       attributes: {
         exclude: [
-          //    "id_nacionalidad",
-          //    "id_direccion",
-          //    "createdAt",
-          //    "updatedAt",
+         "nombre",
+         "apellidos",
+         "email",
+         "fecha_de_nacimiento",
+         "telefono",
         ],
       },
 
       include: [
-        // {
-        //    model: Nacionalidad,
-        //    as: "nacionalidad",
-        //    attributes: ["id", "nombre_nacion"],
-        // },
-        // {
-        //    model: Direccion,
-        //    as: "direccion",
-        //    attributes: {
-        //       exclude: ["createdAt", "updatedAt"],
-        //    },
-        // },
+     
       ],
     });
 
@@ -66,26 +56,12 @@ usuarioController.getById = async (req, res) => {
     const usuario = await Usuario.findByPk(id, {
       attributes: {
         exclude: [
-          //    "id_nacionalidad",
-          //    "id_direccion",
-          //    "createdAt",
-          //    "updatedAt",
+      
         ],
       },
 
       include: [
-        // {
-        //    model: Nacionalidad,
-        //    as: "nacionalidad",
-        //    attributes: ["id", "nombre_nacion"],
-        // },
-        // {
-        //    model: Direccion,
-        //    as: "direccion",
-        //    attributes: {
-        //       exclude: ["createdAt", "updatedAt"],
-        //    },
-        // },
+   
       ],
     });
 
