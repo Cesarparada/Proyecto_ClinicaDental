@@ -21,15 +21,15 @@
 </details>
 
 ## Objetivo
-Este proyecto requería una API funcional conectada a una base de datos con al menos una relación de uno a muchos y una relación de muchos a muchos.
+Realizar una API funcional conectada a una base de datos, en este caso se realizo de una Clinica Dental con al menos relaciones entre pacientes, citas y clientes.
 
 ## Sobre el proyecto
-Decidí crear una aplicación web para ayudar a los amantes del gimnasio, que les permitiría crear y realizar un seguimiento de nuevas rutinas para sus ejercicios diarios. He visto muchas apps de este estilo pero ninguna que nos permita cambiar tan libremente las rutinas adaptandolas a nuestras necesidades.    
+La idea del proyecto es que los usuarios se lorgren registar y se puedan diferenciar por roles de admin y usuarios, tambien a su vez como paciente y odontonlogo, con restricción en la información a la que pueden acceder.    
 
-## Deploy 🚀
+<!-- ## Deploy 🚀
 <div align="center">
     <a href="https://www.google.com"><strong>Url a producción </strong></a>🚀🚀🚀
-</div>
+</div> -->
 
 ## Stack
 Tecnologías utilizadas:
@@ -61,7 +61,7 @@ Tecnologías utilizadas:
 6. ``` $ npm run dev ``` 
 7. ...
 
-## Endpoints
+<!-- ## Endpoints
 <details>
 <summary>Endpoints</summary>
 
@@ -95,14 +95,14 @@ Tecnologías utilizadas:
             GET http://localhost:3000/api/rutina
 
     - ...
-</details>
+</details> -->
 
-## Futuras funcionalidades
+<!-- ## Futuras funcionalidades
 [ ] Añadir create book  
 [ ] Añadir logs  con winston  
 [ ] Validaciones de la solicitud con express-validator  
-[ ] ...
-
+[ ] ... -->
+<!-- 
 ## Contribuciones
 Las sugerencias y aportaciones son siempre bienvenidas.  
 
@@ -139,7 +139,7 @@ Para conseguir mi objetivo he recopilado información de:
  const developer = "datata";
 
  console.log("Desarrollado por: " + datata);
-```  
+```   -->
 
 ## Agradecimientos:
 
