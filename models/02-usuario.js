@@ -19,11 +19,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_role",
       });
 
-      Usuario.belongsTo(models.Paciente, {
+      Usuario.hasMany(models.Paciente, {
         foreignKey: "id_usuario",
       })
-    
-    
     }
   }
   Usuario.init(
@@ -54,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique:true,
         validate: {
           isEmail: true,
           isLowercase: true,
@@ -62,11 +61,6 @@ module.exports = (sequelize, DataTypes) => {
       telefono: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        validate: {
-          inInt: true,
-          isNumeric: true,
-          min: 9
-        },
       },
       password: {
         type: DataTypes.STRING,

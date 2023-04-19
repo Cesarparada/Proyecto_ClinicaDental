@@ -7,7 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       nombre: {
         type: Sequelize.STRING
@@ -27,7 +27,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      id_Role: {
+      id_role: {
         type: Sequelize.INTEGER,
         references: {
           model: "roles",
