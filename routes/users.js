@@ -1,17 +1,16 @@
-var express = require('express');
-const authController = require('../controllers/authController');
+const express = require("express");
+const userController = require("../controllers/userController");
 const router = express.Router();
-const verifyToken = require('../middleware/verifyToken')
-const isAdmin = require('../middleware/isAdmin')
-
-
+const verifyToken = require("../middleware/verifyToken");
+const isAdmin = require("../middleware/isAdmin");
 
 /* GET users listing. */
 
-router.get('/', verifyToken, isAdmin, authController.getAll);
-router.get('/getProfile', verifyToken, authController.getProfile);
-
-
-
+//obtener todos los usuarios
+router.get("/", verifyToken, isAdmin, userController.getAll);
+// visualizar el perfil de usuario
+router.get("/getprofile", verifyToken, userController.getProfile);
+//modificar usuario
+router.put("/updateprofile", verifyToken, userController.updateProfile);
 
 module.exports = router;

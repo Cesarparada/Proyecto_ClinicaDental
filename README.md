@@ -1,38 +1,32 @@
-# GeeksHubs Students API
+# Clinica Dental API
 
 <details>
   <summary>Contenido 📝</summary>
   <ol>
     <li><a href="#objetivo">Objetivo</a></li>
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
-    <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagrama-bd">Diagrama</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#futuras-funcionalidades">Futuras funcionalidades</a></li>
-    <li><a href="#contribuciones">Contribuciones</a></li>
-    <li><a href="#licencia">Licencia</a></li>
-    <li><a href="#webgrafia">Webgrafia</a></li>
-    <li><a href="#desarrollo">Desarrollo</a></li>
+    <li><a href="#team">Team</a></li>
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
 </details>
 
 ## Objetivo
-Realizar una API funcional conectada a una base de datos, en este caso se realizo de una Clinica Dental con al menos relaciones entre pacientes, citas y clientes.
+
+Realizar una API funcional conectada a una base de datos, en este caso se realizo de una Clinica Dental con al menos relaciones entre pacientes, citas y odontologos.
 
 ## Sobre el proyecto
-La idea del proyecto es que los usuarios se lorgren registar y se puedan diferenciar por roles de admin y usuarios, tambien a su vez como paciente y odontonlogo, con restricción en la información a la que pueden acceder.    
 
-<!-- ## Deploy 🚀
-<div align="center">
-    <a href="https://www.google.com"><strong>Url a producción </strong></a>🚀🚀🚀
-</div> -->
+La idea del proyecto es que los usuarios se lorgren registar, crear, modificar y eliminar, se puedan diferenciar por roles de admin y usuarios, tambien a su vez aparecen como pacientes y odontonlogoo, con restricción en la información a la que pueden acceder dependiendo de su role.
 
 ## Stack
+
 Tecnologías utilizadas:
+
 <div align="center">
 <a href="https://sequelize.org/">
     <img src= "https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=white"/>
@@ -48,113 +42,183 @@ Tecnologías utilizadas:
 </a>
  </div>
 
+## Diagrama BD
 
-<!-- ## Diagrama BD -->
-<!-- !['imagen-db']() -->
+<img src="public/images/Diagrama_Clinica_Dental.png" alt="diagrama">
 
 ## Instalación en local
+
 1. Clonar el repositorio
-2. ` $ npm install `
-3. Conectamos nuestro repositorio con la base de datos 
-4. ``` $ Ejecutamos las migraciones ``` 
-5. ``` $ Ejecutamos los seeders ``` 
-6. ``` $ npm run dev ``` 
+2. `$ npm install`
+3. Conectamos nuestro repositorio con la base de datos
+4. `$ Ejecutamos las migraciones`
+5. `$ Ejecutamos los seeders`
+6. `$ npm run dev`
 7. ...
 
-<!-- ## Endpoints
+## Endpoints
+
 <details>
 <summary>Endpoints</summary>
 
 - AUTH
-    - REGISTER
 
-            POST http://localhost:3000/auth/register
-        body:
-        ``` js
-            {
-                "user": "David",
-                "email": "david@david.com",
-                "password": "princes"
-            }
-        ```
+- REGISTRAR USUARIO
 
-    - LOGIN
+       POST http://localhost:3000/auth/register/
 
-            POST http://localhost:3000/auth/login  
-        body:
-        ``` js
-            {
-                "user": "David",
-                "email": "david@david.com",
-                "password": "princes"
-            }
-        ```
-- RUTINAS
-    - RECUPERAR RUTINAS  
+  body:
 
-            GET http://localhost:3000/api/rutina
+  ```js
+   {
 
-    - ...
-</details> -->
+       "nombre": "Luisito",
+       "apellidos": "Comunica",
+       "fecha_de_nacimiento":" 2000-05-05",
+       "email": "luis@luis.com",
+       "telefono": "66678945",
+       "password": "12345678"
 
-<!-- ## Futuras funcionalidades
-[ ] Añadir create book  
-[ ] Añadir logs  con winston  
-[ ] Validaciones de la solicitud con express-validator  
-[ ] ... -->
-<!-- 
-## Contribuciones
-Las sugerencias y aportaciones son siempre bienvenidas.  
+   }
+  ```
 
-Puedes hacerlo de dos maneras:
+- LOGIN
 
-1. Abriendo una issue
-2. Crea un fork del repositorio
-    - Crea una nueva rama  
-        ```
-        $ git checkout -b feature/nombreUsuario-mejora
-        ```
-    - Haz un commit con tus cambios 
-        ```
-        $ git commit -m 'feat: mejora X cosa'
-        ```
-    - Haz push a la rama 
-        ```
-        $ git push origin feature/nombreUsuario-mejora
-        ```
-    - Abre una solicitud de Pull Request
+       POST  http://localhost:3000/auth/login
 
-## Licencia
-Este proyecto se encuentra bajo licencia de "Mi Nombre"
+  body:
 
-## Webgrafia:
-Para conseguir mi objetivo he recopilado información de:
-- link a repositorios 
-- link a documentacion de librerias externas
-- ...
+  ```js
+  {
+      "email": "jose@correo.com",
+      "password":"12345678"
+  }
 
-## Desarrollo:
+  ```
 
-``` js
- const developer = "datata";
+- USUARIO
 
- console.log("Desarrollado por: " + datata);
-```   -->
+- PERFIL DE USUARIO
+
+        GET  http://localhost:3000/usuarios/getProfile
+
+  body:
+
+  ```js
+  {
+      "email": "jose@correo.com",
+      "password":"12345678"
+  }
+
+  ```
+
+- MODIFICAR PERFIL DE USUARIO
+
+      PUT  http://localhost:3000/usuarios/updateprofile
+
+  body:
+
+  ```js
+  {
+      "nombre": "cesar",
+      "apellidos": "Pala"
+      ...
+      ...
+      ...
+  }
+
+  ```
+
+- CREACION DE CITAS
+
+       POST  http://localhost:3000/citas/createcita/
+
+  body:
+
+  ```js
+  {
+      "id_odontologo":1,
+      "fecha": "2023-05-15",
+      "horario": "20:00:00"
+  }
+
+  ```
+
+- VER CITAS COMO CLIENTE
+
+       GET  http://localhost:3000/citas/cita
+
+- MODIFICAR CITAS
+
+      PUT  http://localhost:3000/citas/updatecita/1
+
+  body:
+
+  ```js
+      {
+          "fecha": "2023-06-20",
+          "horario": "01:00:00"
+      }
+
+  ```
+
+- ELIMINAR CITAS
+
+       DELETE  http://localhost:3000/citas/deletecita/1
+
+- ODONTOLOGO
+
+- VER CITAS COMO ODONTOLOGO
+
+       GET  http://localhost:3000/citas/cita/odontologo/
+
+- ADMIN
+
+- VER TODAS LAS CITAS
+
+       GET  http://localhost:3000/usuarios?page=1
+
+- REGISTRAR ODONTOLOGO
+
+       POST http://localhost:3000/auth/register/odontologo
+
+  body:
+
+  ```js
+      {
+          "nombre": "Luisito",
+          "apellidos": "Nocomunica",
+          "fecha_de_nacimiento":" 2000-05-05",
+          "email": "luis@luis.com",
+          "matriculaOdontologo":"123654789",
+          "telefono": "66678945",
+          "password": "12345678"
+       }
+  ```
+
+  </details>
+
+## Team:
+
+**_Francisco Campana_**  
+<a href="https://github.com/FranciscoCampana1" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
+
+**_César Parada_**  
+<a href="https://github.com/Cesarparada" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=orange" target="_blank"></a>
 
 ## Agradecimientos:
 
-Agradezco a mi compañero el tiempo dedicado a este proyecto:
+Agradezco al profesor:
 
-- ***Francisco***  
-<a href="https://github.com/FranciscoCampana1" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a> 
-
-
+- **_Prof. Fidel Guilart_**
 
 ## Contacto
 
-- ***César***  
-<a href="https://github.com/Cesarparada" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=green" target="_blank"></a> 
+**_César Parada_**  
+<a href="https://github.com/Cesarparada" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=orange" target="_blank"></a>
 
-<a href = "mailto:micorreoelectronico@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-<a href="https://www.linkedin.com/in/linkedinUser/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+<a href="mailto:cesard.0925@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+
+<a href="https://www.linkedin.com/in/linkedinUser/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+
 </p>
