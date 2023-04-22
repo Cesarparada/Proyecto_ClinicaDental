@@ -8,19 +8,19 @@ module.exports = {
       "odontologos",
       [
         {
-          id_usuario:6,
+          id_usuario:7,
           matriculaOdontologo: 1234566668,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          id_usuario:7,
+          id_usuario:8,
           matriculaOdontologo: 1234774568,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          id_usuario:8,
+          id_usuario:9,
           matriculaOdontologo: 1234114568,
           createdAt: new Date(),
           updatedAt: new Date(),

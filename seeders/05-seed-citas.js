@@ -9,7 +9,7 @@ module.exports = {
         {
           id_odontologo: 1,
           id_paciente: 1,
-          fecha: "2023-04-20",
+          fecha: "2023-04-08",
           horario: "15:00",
           createdAt: new Date(),
           updatedAt: new Date()
@@ -17,7 +17,7 @@ module.exports = {
         {
           id_odontologo: 2,
           id_paciente: 2,
-          fecha: "2023-04-20",
+          fecha: "2023-04-15",
           horario: "14:00",
           createdAt: new Date(),
           updatedAt: new Date()
@@ -25,7 +25,7 @@ module.exports = {
         {
           id_odontologo: 3,
           id_paciente: 3,
-          fecha: "2023-04-20",
+          fecha: "2023-04-10",
           horario: "13:00",
           createdAt: new Date(),
           updatedAt: new Date()
@@ -33,7 +33,7 @@ module.exports = {
         {
           id_odontologo: 1,
           id_paciente: 4,
-          fecha: "2023-04-20",
+          fecha: "2023-06-20",
           horario: "17:00",
           createdAt: new Date(),
           updatedAt: new Date()
@@ -49,7 +49,7 @@ module.exports = {
         {
           id_odontologo: 3,
           id_paciente: 2,
-          fecha: "2023-04-20",
+          fecha: "2023-05-20",
           horario: "19:00",
           createdAt: new Date(),
           updatedAt: new Date()
