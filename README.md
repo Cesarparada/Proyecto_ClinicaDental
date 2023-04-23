@@ -44,7 +44,7 @@ Tecnologías utilizadas:
 
 ## Diagrama BD
 
-<img src="public/images/Diagrama_Clinica_Dental.png" alt="diagrama">
+<img src="public/images/Diagrama_ClinicaDental.png" alt="diagrama">
 
 ## Instalación en local
 
