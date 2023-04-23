@@ -83,7 +83,7 @@ citaController.deleteCita = async (req, res) => {
   }
 };
 
-// // ACTUALIZAR CITA COMO PACIENTE
+// // MODIFICAR CITA COMO PACIENTE
 citaController.updateCita = async (req, res) => {
   try {
     const paciente = await Paciente.findOne({
@@ -96,11 +96,18 @@ citaController.updateCita = async (req, res) => {
       { fecha: fecha, horario: horario },
       { where: { id: id_cita, id_paciente: paciente.id } }
     );
-
-    return sendSuccsessResponse(res, 200, [
-      { message: "Cita modificada" },
-      updateCita,
-    ]);
+    if (updateCita == 1) {
+      return sendSuccsessResponse(res, 200, [
+        { message: "Cita modificada" },
+        updateCita,
+      ]);
+    } else {
+      sendErrorResponse(
+        res,
+        400,
+        `No se puede modificar la cita, No tienes el permiso necesario`
+      );
+    }
   } catch (error) {
     return sendErrorResponse(res, 500, "No se puede modificar la cita", error);
   }
