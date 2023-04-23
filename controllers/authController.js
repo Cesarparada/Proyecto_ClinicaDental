@@ -8,6 +8,7 @@ const {
 const { compareHash, hash } = require("../_util/hash");
 const { generateToken } = require("../_util/token");
 
+//registro de usuarios
 authController.register = async (req, res) => {
   try {
     const {
@@ -53,6 +54,7 @@ authController.register = async (req, res) => {
   }
 };
 
+// registro de odontologo
 authController.registerOdontologo = async (req, res) => {
   try {
     const {
@@ -99,6 +101,7 @@ authController.registerOdontologo = async (req, res) => {
   }
 };
 
+//controlador de login
 authController.login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
