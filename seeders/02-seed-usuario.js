@@ -82,7 +82,7 @@ module.exports = {
           password: hash("12345678"),
           createdAt: new Date(),
           updatedAt: new Date(),
-          id_role: 1,
+          id_role: 3,
         },
         {
           nombre: "Odontologo Ernesto",
@@ -93,7 +93,7 @@ module.exports = {
           password: hash("12345678"),
           createdAt: new Date(),
           updatedAt: new Date(),
-          id_role: 1,
+          id_role: 3,
         },
         {
           nombre: "Odontologo juan",
@@ -104,7 +104,7 @@ module.exports = {
           password: hash("12345678"),
           createdAt: new Date(),
           updatedAt: new Date(),
-          id_role: 1,
+          id_role: 3,
         },
         {
           nombre: "Admin. Pepe",
