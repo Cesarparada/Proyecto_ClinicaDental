@@ -5,7 +5,7 @@ const {
   sendSuccsessResponse,
   sendErrorResponse,
 } = require("../_util/sendResponse");
-const { compareHash, hash } = require("../_util/hash");
+const { compareHash } = require("../_util/hash");
 const { generateToken } = require("../_util/token");
 
 //registro de usuarios
@@ -22,12 +22,6 @@ authController.register = async (req, res) => {
 
     const encryptedPassword = bcrypt.hashSync(password, 10);
 
-    if (nombre === undefined || email === undefined || password === undefined) {
-      return res.json({
-        success: false,
-        message: "Debe completar correctamente todos los campos requeridos",
-      });
-    }
     const nuevoUsuario = await Usuario.create({
       nombre: nombre,
       apellidos: apellidos,
@@ -35,7 +29,7 @@ authController.register = async (req, res) => {
       email: email,
       password: encryptedPassword,
       fecha_de_nacimiento: fecha_de_nacimiento,
-      id_role: 1, 
+      id_role: 1,
     });
     const nuevoPaciente = await Paciente.create({
       id_usuario: nuevoUsuario.id,
@@ -43,7 +37,7 @@ authController.register = async (req, res) => {
 
     return res.json({
       success: true,
-      message: "Usuario creado correctamente"
+      message: "Usuario creado correctamente",
     });
   } catch (error) {
     return res.status(500).json({
@@ -85,12 +79,13 @@ authController.registerOdontologo = async (req, res) => {
       id_role: 1,
     });
     await Odontologo.create({
-      id_usuario: nuevoUsuario.id, matriculaOdontologo: matriculaOdontologo
+      id_usuario: nuevoUsuario.id,
+      matriculaOdontologo: matriculaOdontologo,
     });
 
     return res.json({
       success: true,
-      message: "Odontologo creado correctamente"
+      message: "Odontologo creado correctamente",
     });
   } catch (error) {
     return res.status(500).json({
@@ -125,10 +120,12 @@ authController.login = async (req, res) => {
       usuario_role: usuario.id_role,
     });
     let role;
-    if (usuario.id_rol == 1) {
+    if (usuario.id_role == 1) {
       role = "user";
-    } else if (usuario.id_rol == 2) {
+    } else if (usuario.id_role == 2) {
       role = "admin";
+    } else if (usuario.id_role == 3) {
+      role = "odontologo";
     }
     sendSuccsessResponse(res, 200, {
       message: "Inicio de sesión de usuario exitoso",
