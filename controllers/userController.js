@@ -28,7 +28,7 @@ userController.getAll = async (req, res) => {
     });
   } catch (error) {
     sendErrorResponse(res, 500, "Error al recuperar usuarios", error);
-    res.json(error);
+    
   }
 };
 

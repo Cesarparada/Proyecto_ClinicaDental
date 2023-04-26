@@ -86,28 +86,22 @@ citaController.deleteCita = async (req, res) => {
 // // MODIFICAR CITA COMO PACIENTE
 citaController.updateCita = async (req, res) => {
   try {
-    const paciente = await Paciente.findOne({
-      where: { id_usuario: req.usuario_id },
-    });
+    const paciente = await Paciente.findOne({where: {id_usuario: req.usuario_id}})
     const id_cita = req.params.id;
     const fecha = req.body.fecha;
     const horario = req.body.horario;
     const updateCita = await Cita.update(
-      { fecha: fecha, horario: horario },
+      { fecha: fecha, horario: horario},
       { where: { id: id_cita, id_paciente: paciente.id } }
     );
-    if (updateCita == 1) {
-      return sendSuccsessResponse(res, 200, [
-        { message: "Cita modificada" },
-        updateCita,
-      ]);
+    if(updateCita == 1){
+       return sendSuccsessResponse(res, 200, [
+      { message: "Cita modificada" },
+      updateCita
+    ])
     } else {
-      sendErrorResponse(
-        res,
-        400,
-        `No se puede modificar la cita, No tienes el permiso necesario`
-      );
-    }
+      return sendErrorResponse(res, 404, "Debe completar correctamente los campos requeridos")
+    };
   } catch (error) {
     return sendErrorResponse(res, 500, "No se puede modificar la cita", error);
   }
@@ -115,18 +109,20 @@ citaController.updateCita = async (req, res) => {
 ///// VER CITAS COMO CLIENTES
 citaController.getCitas = async (req, res) => {
   try {
-    const paciente = await Paciente.findOne({
-      where: { id_usuario: req.usuario_id },
-    });
-    const cita = await Cita.findAll({
-      where: { id_paciente: paciente.id },
-      attributes: { exclude: ["createdAt", "updatedAt"] },
-    });
-    return sendSuccsessResponse(res, 200, [{ message: "Tus Citas" }, cita]);
+    const paciente = await Paciente.findOne({where: {id_usuario: req.usuario_id}})
+    const cita = await Cita.findAll({where: {id_paciente: paciente.id},attributes:{exclude:["createdAt","updatedAt"]}},)
+   if (cita == 0){
+    return sendErrorResponse(res, 404, "No tienes citas")
+   } else{
+    return sendSuccsessResponse(res, 200, [
+      { message: "Tus Citas" },
+      cita
+    ]);
+   }
   } catch (error) {
     return sendErrorResponse(res, 500, "No se encontraron citas", error);
   }
-};
+}
 ///// VER CITAS COMO ODONTOLOGO
 citaController.getCitasOdontologo = async (req, res) => {
   try {
@@ -137,7 +133,14 @@ citaController.getCitasOdontologo = async (req, res) => {
       where: { id_odontologo: odontologo.id },
       attributes: { exclude: ["createdAt", "updatedAt"] },
     });
-    return sendSuccsessResponse(res, 200, [{ message: "Tus Citas" }, cita]);
+    if (cita == 0){
+      return sendErrorResponse(res, 404, "No tienes citas")
+     } else{
+      return sendSuccsessResponse(res, 200, [
+        { message: "Tus Citas" },
+        cita
+      ]);
+     }
   } catch (error) {
     return sendErrorResponse(res, 500, "No se encontraron citas", error);
   }
