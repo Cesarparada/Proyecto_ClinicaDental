@@ -50,7 +50,6 @@ userController.updateProfile = async (req, res) => {
     let newPassword;
     if (req.body.password) {
       newPassword = hash(req.body.password);
-      console.log(newPassword);
     }
     const updateProfile = await Usuario.update(
       {

@@ -1,4 +1,3 @@
-const { Paciente } = require("../models");
 const { sendErrorResponse } = require("../_util/sendResponse");
 const isPatient = async (req, res, next) => {
   const { usuario_role } = req;
