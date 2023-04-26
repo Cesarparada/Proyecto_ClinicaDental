@@ -16,7 +16,8 @@
 </details>
 
 ## Deploy
-<p>Click <a href="clinicdental-production.up.railway.app">hear </a>for go to the databases in Railway</p>
+
+<p>Click <a href="https://clinicdental-production.up.railway.app/">hear </a>for go to the databases in Railway</p>
 
 ## Objetivo
 
@@ -42,6 +43,9 @@ Tecnologías utilizadas:
 </a>
 <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
     <img src= "https://img.shields.io/badge/javascipt-EFD81D?style=for-the-badge&logo=javascript&logoColor=black"/>
+</a>
+<a href="https://www.postman.com/">
+    <img src= "https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"/>
 </a>
  </div>
 
@@ -78,7 +82,7 @@ Tecnologías utilizadas:
        "nombre": "Luisito",
        "apellidos": "Comunica",
        "fecha_de_nacimiento":" 2000-05-05",
-       "email": "luis@luis.com",
+       "email": "luis@correo.com",
        "telefono": "66678945",
        "password": "12345678"
 
@@ -192,7 +196,7 @@ Tecnologías utilizadas:
           "nombre": "Luisito",
           "apellidos": "Nocomunica",
           "fecha_de_nacimiento":" 2000-05-05",
-          "email": "luis@luis.com",
+          "email": "luis@correo.com",
           "matriculaOdontologo":"123654789",
           "telefono": "66678945",
           "password": "12345678"
