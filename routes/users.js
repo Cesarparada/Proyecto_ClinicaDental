@@ -8,8 +8,10 @@ const isAdmin = require("../middleware/isAdmin");
 
 //obtener todos los usuarios
 router.get("/", verifyToken, isAdmin, userController.getAll);
+
 // visualizar el perfil de usuario
 router.get("/getprofile", verifyToken, userController.getProfile);
+
 //modificar usuario
 router.put("/updateprofile", verifyToken, userController.updateProfile);
 

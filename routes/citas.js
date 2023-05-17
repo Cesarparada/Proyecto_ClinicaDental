@@ -15,10 +15,13 @@ router.delete(
   isPatient,
   citaController.deleteCita
 );
+
 // modificar citas
 router.put("/updatecita/:id", verifyToken, isPatient, citaController.updateCita);
+
 //ver citas como cliente
 router.get("/cita", verifyToken, isPatient, citaController.getCitas);
+
 //ver citas como odontologo
 router.get(
   "/cita/odontologo",

@@ -1,5 +1,5 @@
 const authController = {};
-const { Usuario, Paciente, Odontologo } = require("../models");
+const { Usuario, Paciente, Odontologo, Role } = require("../models");
 const bcrypt = require("bcrypt");
 const {
   sendSuccsessResponse,
@@ -35,9 +35,11 @@ authController.register = async (req, res) => {
       id_usuario: nuevoUsuario.id,
     });
 
-    return sendSuccsessResponse(res, 200, {message: "Usuario creado correctamente"})
+    return sendSuccsessResponse(res, 200, {
+      message: "Usuario creado correctamente",
+    });
   } catch (error) {
-    return sendErrorResponse(res, 500, "Algo salió mal", error )
+    return sendErrorResponse(res, 500, "Algo salió mal", error);
   }
 };
 
@@ -70,9 +72,11 @@ authController.registerOdontologo = async (req, res) => {
       matriculaOdontologo: matriculaOdontologo,
     });
 
-    return sendSuccsessResponse(res, 200,{message: "Odontologo creado correctamente"});
+    return sendSuccsessResponse(res, 200, {
+      message: "Odontologo creado correctamente",
+    });
   } catch (error) {
-    return sendErrorResponse(res, 500,{message: "Algo salió mal", error});
+    return sendErrorResponse(res, 500, { message: "Algo salió mal", error });
   }
 };
 
@@ -87,30 +91,31 @@ authController.login = async (req, res) => {
     );
   }
   try {
-    const usuario = await Usuario.findOne({ where: { email: email } });
+    const usuario = await Usuario.findOne({ where: { email: email }, include: [{ model: Role,}] });
     if (!usuario) {
-      return sendErrorResponse(res, 404, "Email no existente");
+      return sendErrorResponse(res, 404, "Email o contraseña incorrecta");
     }
     const isValidPassword = compareHash(password, usuario.password);
     if (!isValidPassword) {
-      return sendErrorResponse(res, 401, "Contraseña incorrecta");
+      return sendErrorResponse(res, 401, "Email o contraseña incorrecta");
     }
     const token = generateToken({
       usuario_id: usuario.id,
-      usuario_role: usuario.id_role,
+      usuario_role: usuario.Role.rolUsuario,
+      usuario_name: usuario.nombre,
     });
-    let role;
-    if (usuario.id_role == 1) {
-      role = "user";
-    } else if (usuario.id_role == 2) {
-      role = "admin";
-    } else if (usuario.id_role == 3) {
-      role = "odontologo";
-    }
+    // let role;
+    // if (usuario.id_role == 1) {
+    //   role = "user";
+    // } else if (usuario.id_role == 2) {
+    //   role = "admin";
+    // } else if (usuario.id_role == 3) {
+    //   role = "odontologo";
+    // }
     sendSuccsessResponse(res, 200, {
       message: "Inicio de sesión de usuario exitoso",
       token: token,
-      role: role,
+      role: usuario.Role.rolUsuario,
     });
   } catch (error) {
     sendErrorResponse(res, 500, "Inicio de sesión de usuario fallido", error);

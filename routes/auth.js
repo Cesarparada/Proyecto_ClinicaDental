@@ -8,6 +8,7 @@ const verifyToken = require("../middleware/verifyToken");
 
 //registar usuario
 router.post("/register", authController.register);
+
 //registrar odontologo
 router.post(
   "/register/odontologo",

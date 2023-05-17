@@ -1,5 +1,7 @@
 const { getTokenFromHeader, decodedToken } = require("../_util/token");
 const { sendErrorResponse } = require("../_util/sendResponse");
+
+//Funcion para verificar en token
 const verifyToken = (req, res, next) => {
   const token = getTokenFromHeader(req.headers);
   if (!token) {

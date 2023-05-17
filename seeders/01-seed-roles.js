@@ -8,18 +8,18 @@ module.exports = {
       [
         {
           rolUsuario: "user",
-          createdAt:new Date(),
-          updatedAt:new Date()
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           rolUsuario: "admin",
-          createdAt:new Date(),
-          updatedAt:new Date()
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           rolUsuario: "odontologo",
-          createdAt:new Date(),
-          updatedAt:new Date()
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}
@@ -27,8 +27,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
- 
-      await queryInterface.bulkDelete('roles', null, {});
-     
+    await queryInterface.bulkDelete("roles", null, {});
   },
 };
